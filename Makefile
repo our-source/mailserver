@@ -1,4 +1,4 @@
-NAME = hardware/mailserver:testing
+NAME = oursource/mailserver:testing
 
 all: build-no-cache init fixtures run clean
 all-fast: build init fixtures run clean
