@@ -1,24 +1,14 @@
-:warning:
-
-# This docker image is no longer maintained.
-
-:warning:
-
-## hardware/mailserver
-
-### Chat & questions
-
-[![](https://badges.gitter.im/hardware-mailserver/Lobby.svg)](https://gitter.im/hardware-mailserver/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+## oursource/mailserver
 
 ### Build
 
-[![](https://travis-ci.org/hardware/mailserver.svg?branch=master)](https://travis-ci.org/hardware/mailserver) [![](https://images.microbadger.com/badges/version/hardware/mailserver:1.1-latest.svg)](https://microbadger.com/images/hardware/mailserver:1.1-latest)
+[![](https://travis-ci.org/our-source/mailserver.svg?branch=master)](https://travis-ci.org/our-source/mailserver) [![](https://images.microbadger.com/badges/version/oursource/mailserver:1.1-latest.svg)](https://microbadger.com/images/oursource/mailserver:1.1-latest)
 
 ### Docker image
 
-[![](https://images.microbadger.com/badges/image/hardware/mailserver:1.1-latest.svg)](https://microbadger.com/images/hardware/mailserver:1.1-latest) [![](https://img.shields.io/docker/automated/hardware/mailserver.svg)](https://hub.docker.com/r/hardware/mailserver/builds/) [![](https://img.shields.io/docker/pulls/hardware/mailserver.svg)](https://hub.docker.com/r/hardware/mailserver/) [![](https://img.shields.io/docker/stars/hardware/mailserver.svg)](https://hub.docker.com/r/hardware/mailserver/) [![](https://img.shields.io/badge/bitcoin-donate-green.svg)](https://keybase.io/hardware)
+[![](https://images.microbadger.com/badges/image/oursource/mailserver:1.1-latest.svg)](https://microbadger.com/images/oursource/mailserver:1.1-latest) [![](https://img.shields.io/docker/automated/oursource/mailserver.svg)](https://hub.docker.com/r/oursource/mailserver/builds/) [![](https://img.shields.io/docker/pulls/oursource/mailserver.svg)](https://hub.docker.com/r/oursource/mailserver/) [![](https://img.shields.io/docker/stars/oursource/mailserver.svg)](https://hub.docker.com/r/oursource/mailserver/) [![](https://img.shields.io/badge/bitcoin-donate-green.svg)](https://keybase.io/oursource)
 
-**hardware/mailserver** is a simple and full-featured mail server build as a set of multiple docker images, including:
+**oursource/mailserver** is a simple and full-featured mail server build as a set of multiple docker images, including:
 
 - **Postfix** : a full-set smtp email server
 - **Dovecot** : secure IMAP and POP3 email server
@@ -40,7 +30,7 @@
 
 ### Summary
 
-- [hardware/mailserver](#hardwaremailserver)
+- [oursource/mailserver](#oursourcemailserver)
   - [Chat & questions](#chat--questions)
   - [Build](#build)
   - [Docker image](#docker-image)
@@ -212,9 +202,9 @@ docker network create http_network
 
 # Create the required folders and files
 mkdir -p /mnt/docker/traefik/acme && cd /mnt/docker \
-&& curl https://raw.githubusercontent.com/hardware/mailserver/master/docker-compose.sample.yml -o docker-compose.yml \
-&& curl https://raw.githubusercontent.com/hardware/mailserver/master/sample.env -o .env \
-&& curl https://raw.githubusercontent.com/hardware/mailserver/master/traefik.sample.toml -o traefik/traefik.toml \
+&& curl https://raw.githubusercontent.com/our-source/mailserver/master/docker-compose.sample.yml -o docker-compose.yml \
+&& curl https://raw.githubusercontent.com/our-source/mailserver/master/sample.env -o .env \
+&& curl https://raw.githubusercontent.com/our-source/mailserver/master/traefik.sample.toml -o traefik/traefik.toml \
 && touch traefik/acme/acme.json \
 && chmod 600 docker-compose.yml .env traefik/traefik.toml traefik/acme/acme.json
 ```
@@ -230,18 +220,18 @@ docker-compose up -d
 PostfixAdmin is a web based interface used to manage mailboxes, virtual domains and aliases.
 
 * Docker image : https://github.com/hardware/postfixadmin
-* How to setup : [Postfixadmin initial configuration](https://github.com/hardware/mailserver/wiki/Postfixadmin-initial-configuration)
+* How to setup : [Postfixadmin initial configuration](https://github.com/our-source/mailserver/wiki/Postfixadmin-initial-configuration)
 
 #### 3 - Rainloop installation (optional)
 
 Rainloop is a simple, modern and fast webmail with Sieve scripts support (filters and vacation message), GPG and a modern user interface.
 
 * Docker image : https://github.com/hardware/rainloop
-* How to setup : [Rainloop initial configuration](https://github.com/hardware/mailserver/wiki/Rainloop-initial-configuration)
+* How to setup : [Rainloop initial configuration](https://github.com/our-source/mailserver/wiki/Rainloop-initial-configuration)
 
 #### 4 - Done, congratulation ! :tada:
 
-At first launch, the container takes few minutes to generate SSL certificates (if needed), DKIM keypair and update clamav database, all of this takes some time (1/2 minutes). This image comes with a snake-oil self-signed certificate, please use your own trusted certificates. [See below](https://github.com/hardware/mailserver#ssl-certificates) for configuration.
+At first launch, the container takes few minutes to generate SSL certificates (if needed), DKIM keypair and update clamav database, all of this takes some time (1/2 minutes). This image comes with a snake-oil self-signed certificate, please use your own trusted certificates. [See below](https://github.com/our-source/mailserver#ssl-certificates) for configuration.
 
 **List of webservices available:**
 
@@ -285,7 +275,7 @@ You can check the startup logs with this command :
 
 https://github.com/hardware/mailserver-rancher
 
-This catalog provides a basic template to easily deploy an email server based on [hardware/mailserver](https://github.com/hardware/mailserver) very quickly. To use it, just add this repository to your Rancher system as a catalog in `Admin > Settings` page and follow [the readme](https://github.com/hardware/mailserver-rancher/blob/master/README.md). This catalog has been initiated by [@MichelDiz](https://github.com/MichelDiz).
+This catalog provides a basic template to easily deploy an email server based on [our-source/mailserver](https://github.com/our-source/mailserver) very quickly. To use it, just add this repository to your Rancher system as a catalog in `Admin > Settings` page and follow [the readme](https://github.com/hardware/mailserver-rancher/blob/master/README.md). This catalog has been initiated by [@MichelDiz](https://github.com/MichelDiz).
 
 ![rancher-ui](https://i.imgur.com/kdJxAiN.png)
 
@@ -666,7 +656,7 @@ Readme : https://github.com/extremeshok/clamav-unofficial-sigs
 
 #### Enable clamav-unofficial-sigs
 
-Create your `user.conf` file under `/mnt/docker/mail/clamav-unofficial-sigs` directory to configure clamav-unofficial-sigs updater. This file override the default configuration specified in [os.conf](https://github.com/hardware/mailserver/blob/master/rootfs/etc/clamav/unofficial-sigs/os.conf) and [master.conf](https://github.com/hardware/mailserver/blob/master/rootfs/etc/clamav/unofficial-sigs/master.conf). Don't forget, once you have completed the configuration of this file, set the value of `user_configuration_complete` to `yes` otherwise the script will not be able to execute.
+Create your `user.conf` file under `/mnt/docker/mail/clamav-unofficial-sigs` directory to configure clamav-unofficial-sigs updater. This file override the default configuration specified in [os.conf](https://github.com/our-source/mailserver/blob/master/rootfs/etc/clamav/unofficial-sigs/os.conf) and [master.conf](https://github.com/our-source/mailserver/blob/master/rootfs/etc/clamav/unofficial-sigs/master.conf). Don't forget, once you have completed the configuration of this file, set the value of `user_configuration_complete` to `yes` otherwise the script will not be able to execute.
 As [Yara rules are broken with clamav ≥ 0.100](https://github.com/extremeshok/clamav-unofficial-sigs/issues/203), we disable Yara rules for now.
 
 ```ini
@@ -1094,7 +1084,7 @@ NOQUEUE: reject: 554 5.7.1 <john.doe@domain.tld>: Sender address rejected: Acces
 
 If you still use 1.0 version (bundled with Spamassassin, Amavisd...etc) which was available with the `latest` tag, you can follow the migration steps here :
 
-https://github.com/hardware/mailserver/wiki/Migrating-from-1.0-stable-to-1.1-stable
+https://github.com/our-source/mailserver/wiki/Migrating-from-1.0-stable-to-1.1-stable
 
 Or stay with `1.0-legacy` tag (not recommended).
 
