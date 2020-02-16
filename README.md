@@ -2,11 +2,11 @@
 
 ### Build
 
-[![](https://travis-ci.org/our-source/mailserver.svg?branch=master)](https://travis-ci.org/our-source/mailserver) [![](https://images.microbadger.com/badges/version/oursource/mailserver:1.1-latest.svg)](https://microbadger.com/images/oursource/mailserver:1.1-latest)
+[![](https://travis-ci.org/our-source/mailserver.svg?branch=master)](https://travis-ci.org/our-source/mailserver) [![](https://images.microbadger.com/badges/version/oursource/mailserver:latest.svg)](https://microbadger.com/images/oursource/mailserver:latest)
 
 ### Docker image
 
-[![](https://images.microbadger.com/badges/image/oursource/mailserver:1.1-latest.svg)](https://microbadger.com/images/oursource/mailserver:1.1-latest) [![](https://img.shields.io/docker/automated/oursource/mailserver.svg)](https://hub.docker.com/r/oursource/mailserver/builds/) [![](https://img.shields.io/docker/pulls/oursource/mailserver.svg)](https://hub.docker.com/r/oursource/mailserver/) [![](https://img.shields.io/docker/stars/oursource/mailserver.svg)](https://hub.docker.com/r/oursource/mailserver/) [![](https://img.shields.io/badge/bitcoin-donate-green.svg)](https://keybase.io/oursource)
+[![](https://images.microbadger.com/badges/image/oursource/mailserver:latest.svg)](https://microbadger.com/images/oursource/mailserver:latest) [![](https://img.shields.io/docker/automated/oursource/mailserver.svg)](https://hub.docker.com/r/oursource/mailserver/builds/) [![](https://img.shields.io/docker/pulls/oursource/mailserver.svg)](https://hub.docker.com/r/oursource/mailserver/) [![](https://img.shields.io/docker/stars/oursource/mailserver.svg)](https://hub.docker.com/r/oursource/mailserver/) [![](https://img.shields.io/badge/bitcoin-donate-green.svg)](https://keybase.io/oursource)
 
 **oursource/mailserver** is a simple and full-featured mail server build as a set of multiple docker images, including:
 
@@ -23,7 +23,7 @@
 - **NSD** : authoritative DNS server with DNSSEC support
 - **Træfik** : modern HTTP reverse proxy
 - **SSL** : _let's encrypt_ with auto-renewal (SAN and wildcard certificates), custom and self-signed certificates support
-- **OpenLDAP** : [BETA] ldap support available (only in `1.1-latest` for now)
+- **OpenLDAP** : [BETA] ldap support available (only in `latest` for now)
 - Supporting multiple virtual domains over MySQL/PostgreSQL backend
 - Integration tests with Travis CI
 - Automated builds on DockerHub
