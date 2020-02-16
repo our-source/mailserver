@@ -1,7 +1,7 @@
 FROM oursource/debian-mail-overlay:master
 
 LABEL description "Simple and full-featured mail server using Docker" \
-      maintainer="Hardware <contact@meshup.net>"
+      maintainer="Johan Smits <johan@smitsmail.net>"
 
 ARG DEBIAN_FRONTEND=noninteractive
 ENV PYTHONUNBUFFERED=1
