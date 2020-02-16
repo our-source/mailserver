@@ -6,7 +6,7 @@
 
 ### Docker image
 
-[![](https://images.microbadger.com/badges/image/oursource/mailserver:latest.svg)](https://microbadger.com/images/oursource/mailserver:latest) [![](https://img.shields.io/docker/automated/oursource/mailserver.svg)](https://hub.docker.com/r/oursource/mailserver/builds/) [![](https://img.shields.io/docker/pulls/oursource/mailserver.svg)](https://hub.docker.com/r/oursource/mailserver/) [![](https://img.shields.io/docker/stars/oursource/mailserver.svg)](https://hub.docker.com/r/oursource/mailserver/) [![](https://img.shields.io/badge/bitcoin-donate-green.svg)](https://keybase.io/oursource)
+[![](https://images.microbadger.com/badges/image/oursource/mailserver:latest.svg)](https://microbadger.com/images/oursource/mailserver:latest) [![](https://img.shields.io/docker/automated/oursource/mailserver.svg)](https://hub.docker.com/r/oursource/mailserver/builds/) [![](https://img.shields.io/docker/pulls/oursource/mailserver.svg)](https://hub.docker.com/r/oursource/mailserver/) [![](https://img.shields.io/docker/stars/oursource/mailserver.svg)](https://hub.docker.com/r/oursource/mailserver/)
 
 **oursource/mailserver** is a simple and full-featured mail server build as a set of multiple docker images, including:
 
