@@ -78,6 +78,7 @@
   - [Postfix blacklist](#postfix-blacklist)
   - [Email client settings](#email-client-settings)
   - [Components](#components)
+  - [Migration from Traefik 1 to 2](#migration-from-traefik-1-to-2)
   - [Migration from 1.0 to 1.1](#migration-from-10-to-11)
   - [Community projects](#community-projects)
   - [Some useful Thunderbird extensions](#some-useful-thunderbird-extensions)
@@ -206,8 +207,9 @@ mkdir -p /mnt/docker/traefik/acme && cd /mnt/docker \
 && curl https://raw.githubusercontent.com/our-source/mailserver/master/docker-compose.sample.yml -o docker-compose.yml \
 && curl https://raw.githubusercontent.com/our-source/mailserver/master/sample.env -o .env \
 && curl https://raw.githubusercontent.com/our-source/mailserver/master/traefik.sample.toml -o traefik/traefik.toml \
+&& curl https://raw.githubusercontent.com/mailserver2/mailserver/master/file.sample.toml -o traefik/file.toml \
 && touch traefik/acme/acme.json \
-&& chmod 600 docker-compose.yml .env traefik/traefik.toml traefik/acme/acme.json
+&& chmod 600 docker-compose.yml .env traefik/traefik.toml traefik/file.toml traefik/acme/acme.json
 ```
 
 Edit the `.env` and `traefik.toml`, adapt to your needs, then start all services:
@@ -220,33 +222,19 @@ docker-compose up -d
 
 PostfixAdmin is a web based interface used to manage mailboxes, virtual domains and aliases.
 
-<<<<<<< HEAD
 * Docker image : https://github.com/hardware/postfixadmin
 * How to setup : [Postfixadmin initial configuration](https://github.com/our-source/mailserver/wiki/Postfixadmin-initial-configuration)
-=======
-* Docker image: https://github.com/hardware/postfixadmin
-* How to setup: [Postfixadmin initial configuration](https://github.com/hardware/mailserver/wiki/Postfixadmin-initial-configuration)
->>>>>>> 30db4cb... fixes spelling errors and typos
 
 #### 3 - Rainloop installation (optional)
 
 Rainloop is a simple, modern and fast web mail front end with Sieve scripts support (filters and vacation message), GPG and a modern user interface.
 
-<<<<<<< HEAD
 * Docker image : https://github.com/hardware/rainloop
 * How to setup : [Rainloop initial configuration](https://github.com/our-source/mailserver/wiki/Rainloop-initial-configuration)
 
 #### 4 - Done, congratulation ! :tada:
 
 At first launch, the container takes few minutes to generate SSL certificates (if needed), DKIM keypair and update clamav database, all of this takes some time (1/2 minutes). This image comes with a snake-oil self-signed certificate, please use your own trusted certificates. [See below](https://github.com/our-source/mailserver#ssl-certificates) for configuration.
-=======
-* Docker image: https://github.com/hardware/rainloop
-* How to setup: [Rainloop initial configuration](https://github.com/hardware/mailserver/wiki/Rainloop-initial-configuration)
-
-#### 4 - Done, congratulation ! :tada:
-
-At first launch, the container takes few minutes to generate SSL certificates (if needed), DKIM keypair generation and update Clamav database, all of this takes some time (1/2 minutes). This image comes with a snake-oil self-signed certificate, please use your own trusted certificates. [See below](https://github.com/hardware/mailserver#ssl-certificates) for configuration.
->>>>>>> 30db4cb... fixes spelling errors and typos
 
 **List of webservices available:**
 
@@ -674,13 +662,8 @@ Readme: https://github.com/extremeshok/clamav-unofficial-sigs
 
 #### Enable clamav-unofficial-sigs
 
-<<<<<<< HEAD
-Create your `user.conf` file under `/mnt/docker/mail/clamav-unofficial-sigs` directory to configure clamav-unofficial-sigs updater. This file override the default configuration specified in [os.conf](https://github.com/our-source/mailserver/blob/master/rootfs/etc/clamav/unofficial-sigs/os.conf) and [master.conf](https://github.com/our-source/mailserver/blob/master/rootfs/etc/clamav/unofficial-sigs/master.conf). Don't forget, once you have completed the configuration of this file, set the value of `user_configuration_complete` to `yes` otherwise the script will not be able to execute.
-As [Yara rules are broken with clamav ≥ 0.100](https://github.com/extremeshok/clamav-unofficial-sigs/issues/203), we disable Yara rules for now.
-=======
 Create your `user.conf` file under `/mnt/docker/mail/clamav-unofficial-sigs` directory to configure clamav-unofficial-sigs updater. This file override the default configuration specified in [os.conf](https://github.com/hardware/mailserver/blob/master/rootfs/etc/clamav/unofficial-sigs/os.conf) and [master.conf](https://github.com/hardware/mailserver/blob/master/rootfs/etc/clamav/unofficial-sigs/master.conf). Don't forget, once you have completed the configuration of this file, set the value of `user_configuration_complete` to `yes` otherwise the script will not be able to execute.
 As [Yara rules are broken with Clamav = 0.100](https://github.com/extremeshok/clamav-unofficial-sigs/issues/203), we disable Yara rules for now.
->>>>>>> 30db4cb... fixes spelling errors and typos
 
 ```ini
 # /mnt/docker/mail/clamav-unofficial-sigs/user.conf
@@ -1100,6 +1083,12 @@ NOQUEUE: reject: 554 5.7.1 <john.doe@domain.tld>: Sender address rejected: Acces
 - s6 2.8.0.1
 - Rsyslog 8.24.0
 - ManageSieve server
+
+<p align="right"><a href="#summary">Back to table of contents :arrow_up_small:</a></p>
+
+### Migration from Traefik 1 to 2
+
+Migrating from traefik 1 to 2 does not change any mailserver images that are used, only the traefik image version. You do need to update traefik labels on all containers as per [docker-compose.sample.yml](docker-compose.sample.yml). When you do this, either delete your acme.json and let traefik request the new certificate, or use the [tool](https://github.com/traefik/traefik-migration-tool) to convert from v1 to v2.
 
 <p align="right"><a href="#summary">Back to table of contents :arrow_up_small:</a></p>
 
