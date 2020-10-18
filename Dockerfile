@@ -19,7 +19,8 @@ RUN apt-get update && apt-get install -y -q --no-install-recommends \
  && apt-get autoremove -y \
  && apt-get clean \
  && rm -rf /tmp/* /var/lib/apt/lists/* /var/cache/debconf/*-old \
- && pip3 install watchdog
+ && pip3 install watchdog \
+ && sed -i 's#https://rspamd.com/freemail/disposable.txt.zst#https://maps.rspamd.com/freemail/disposable.txt.zst#' /etc/rspamd/modules.d/multimap.conf
 
 EXPOSE 25 143 465 587 993 4190 11334
 COPY rootfs /
