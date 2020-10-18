@@ -1616,7 +1616,7 @@ load 'test_helper/bats-assert/load'
 }
 
 @test "checking clamav: mirrors.dat exist" {
-  run docker exec mailserver_default [ -f /var/lib/clamav/mirrors.dat ]
+  run docker exec mailserver_default [ ! -f /var/lib/clamav/mirrors.dat ]
   assert_success
 }
 
@@ -1626,7 +1626,7 @@ load 'test_helper/bats-assert/load'
 }
 
 @test "checking clamav: Eicar-Test-Signature FOUND" {
-  run docker exec mailserver_default grep -i 'Eicar-Test-Signature(.*) FOUND' /var/log/mail.log
+  run docker exec mailserver_default grep -i 'clamav: virus found: "{HEX}EICAR.TEST.3.UNOFFICIAL"' /var/log/mail.log
   assert_success
 }
 
