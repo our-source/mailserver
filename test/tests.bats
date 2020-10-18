@@ -1616,7 +1616,7 @@ load 'test_helper/bats-assert/load'
 }
 
 @test "checking clamav: mirrors.dat exist" {
-  run docker exec mailserver_default [ -f /var/lib/clamav/mirrors.dat ]
+  run docker exec mailserver_default [ ! -f /var/lib/clamav/mirrors.dat ]
   assert_success
 }
 
