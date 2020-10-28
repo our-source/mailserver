@@ -1,6 +1,21 @@
 # Changelog
 
-## Unreleased
+## v1.3.0
+
+* Fixes spelling errors and typos
+* Disable TLS1.1
+* Raise test images for databases and cache
+* Fix env exports
+* Make Zeyple work again
+* DKIM update
+* Added compression to Dovecot IMAP
+* Update osixia/openldap:1.4.0
+* Upgrade configs to traefik 2
+* Fix certificate watching (auto renew)
+* Optional vhosts directory ownership setup
+* Update base image oursource/debian-mail-overlay:master
+
+## v1.2.0
 
 * Bump to new base image version 1.0.2 with rspamd 2.6
 * Bump to new base image version 1.0.3 with updated Skalibs 2.9.3.0 and Execline 2.6.1.1
