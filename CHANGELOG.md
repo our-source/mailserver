@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.4.0
+
+* Update oursource/debian-mail-overlay:v1.11.0 base image
+* Fixing some more log rotation warnings
+
 ## v1.3.0
 
 * Fixes spelling errors and typos
