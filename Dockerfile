@@ -1,4 +1,4 @@
-FROM oursource/debian-mail-overlay:master
+FROM oursource/debian-mail-overlay:v1.11.0
 
 LABEL description="Simple and full-featured mail server using Docker" \
       maintainer="Johan Smits <johan@smitsmail.net>"
