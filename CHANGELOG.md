@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.4.1
+
+* Trigger new build
+
 ## v1.4.0
 
 * Update oursource/debian-mail-overlay:v1.11.0 base image
